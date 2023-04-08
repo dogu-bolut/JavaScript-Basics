@@ -2,7 +2,6 @@
 //- Have the program find prime numbers until the user chooses to stop asking for the next one.
 
 let getNextPrimeNumber = (function () {
-    "use strict";
 
     function isPrime(n) {
         let i;
@@ -31,7 +30,7 @@ let showNextNumber = true;
 while (showNextNumber) {
     let doYouWant = prompt("Do you want to see next prime number: Y/N");
     if (doYouWant == "y" || doYouWant == "Y") {
-        this.console.log(getNextPrimeNumber());
+        console.log(getNextPrimeNumber());
     }
     else if (doYouWant == "n" || doYouWant == "N") {
         showNextNumber = false;
