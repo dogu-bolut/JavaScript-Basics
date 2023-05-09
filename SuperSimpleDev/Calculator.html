@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Calculator</title>
+	</head>
+	<body id="calculator">
+		<h1>Calculator</h1>
+		<p>
+			<button style="width: 250px; height: 50px;" onclick="calculation+='1'; displayCalculation();">1</button>
+			<button style="width: 250px; height: 50px;" onclick="calculation+='2'; displayCalculation();">2</button>
+			<button style="width: 250px; height: 50px;" onclick="calculation+='3'; displayCalculation();">3</button>
+			<button style="width: 250px; height: 50px;" onclick="calculation='';">Clear</button>
+		</p>
+		<p>
+			<button style="width: 250px; height: 50px;" onclick="calculation+='4'; displayCalculation();">4</button>
+			<button style="width: 250px; height: 50px;" onclick="calculation+='5'; displayCalculation();">5</button>
+			<button style="width: 250px; height: 50px;" onclick="calculation+='6'; displayCalculation();">6</button>
+			<button style="width: 250px; height: 50px;" onclick="calculation+=' + '; displayCalculation();">+</button>
+		</p>
+		<p>
+			<button style="width: 250px; height: 50px;" onclick="calculation+='7'; displayCalculation();">7</button>
+			<button style="width: 250px; height: 50px;" onclick="calculation+='8'; displayCalculation();">8</button>
+			<button style="width: 250px; height: 50px;" onclick="calculation+='9'; displayCalculation();">9</button>
+			<button style="width: 250px; height: 50px;" onclick="calculation+=' - '; displayCalculation();">-</button>
+		</p>
+		<p>
+			<button style="width: 300px; height: 50px;" onclick="calculation+=' * '; displayCalculation();">*</button>
+			<button style="width: 300px; height: 50px;" onclick="calculation+=' / '; displayCalculation();">/</button>
+			<button style="width: 405px; height: 50px;" onclick="calculation=eval(calculation); displayCalculation();">=</button>
+		</p>
+		<p>
+			
+		</p>
+		<h3>Results are in the console(Right Click > Inspect > Console)</h3>
+		<script>
+			let calculation = "";
+			function displayCalculation(){
+				console.log(calculation);
+			}
+		</script>
+	</body>
+</html>
