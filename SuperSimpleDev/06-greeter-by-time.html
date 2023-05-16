@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Greeter</title>
+		<style>
+			.backColor{
+				background-color: rgb(46, 26, 71);
+			}
+			.textStyle{
+				color: white;
+				text-align: center;
+			}
+		</style>
+
+	</head>
+	<body id="textArea" class="backColor">
+		<script>
+			let currentDate = new Date();
+			const time = currentDate.getHours();
+			let message = "";
+			if(time >= 6 && time < 12){
+				message = "Good Morning!";
+			} else if (time >= 12 && time < 18){
+				message = "Good Afternoon!";
+			} else {
+				message = "Good Night!";
+			} document.getElementById("textArea").innerHTML = `<h1 class="textStyle">${message}</h1>`
+		</script>
+	</body>
+</html>
