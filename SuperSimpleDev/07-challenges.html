@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <button onclick="console.log(convertHeatTypes(85, 'F'));">Click To See Convert</button>
+        <script>
+            function convertHeatTypes(number, type=""){
+                if(type.toUpperCase() === "C"){
+                    return (number * 9 / 5) + 32;
+                } else if (type.toUpperCase() === "F"){
+                    return (number - 32) * 5 / 9;
+                } else {
+                    return "Tanımlanmayan Değer";
+                }
+            }
+        </script>
+    </body>
+</html>
