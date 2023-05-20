@@ -1,50 +1,53 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Cart Quantity</title>
-	</head>
-	<body bgcolor="darkcyan">
-		<h1>Cart Quantity</h1>
-		<button onclick="showQuantity();">Show Quantity</button>
-		<button onclick="cartUpdate(1);">Add to Cart</button>
-		<button onclick="cartUpdate(2);">+2</button>
-		<button onclick="cartUpdate(3);">+3</button>
-		<button onclick="cartUpdate(-1);">Delete Item</button>
-		<button onclick="cartUpdate(-2);">-2</button>
-		<button onclick="cartUpdate(-3);">-3</button>
-		<button onclick="cartUpdate(0)">Reset Cart</button>
-		<script>
-			let cartQuantity = 0;
-			function cartUpdate(number){
-				if(number === -3){
-					cartQuantity -= 3;
-				} else if(number === -2){
-					cartQuantity -= 2;
-				} else if(number === -1){
-					cartQuantity--;
-				} else if(number === 1){
-					cartQuantity++;
-				} else if(number === 2){
-					cartQuantity += 2;
-				} else if(number === 3){
-					cartQuantity += 3;
-				} else{
-					cartQuantity=0;
-				}
 
-				showQuantity();
+<head>
+	<title>Cart Quantity</title>
+</head>
+
+<body bgcolor="darkcyan">
+	<h1>Cart Quantity</h1>
+	<button onclick="showQuantity();">Show Quantity</button>
+	<button onclick="cartUpdate(1);">Add to Cart</button>
+	<button onclick="cartUpdate(2);">+2</button>
+	<button onclick="cartUpdate(3);">+3</button>
+	<button onclick="cartUpdate(-1);">Delete Item</button>
+	<button onclick="cartUpdate(-2);">-2</button>
+	<button onclick="cartUpdate(-3);">-3</button>
+	<button onclick="cartUpdate(0)">Reset Cart</button>
+	<script>
+		let cartQuantity = 0;
+		function cartUpdate(number) {
+			if (number === -3) {
+				cartQuantity -= 3;
+			} else if (number === -2) {
+				cartQuantity -= 2;
+			} else if (number === -1) {
+				cartQuantity--;
+			} else if (number === 1) {
+				cartQuantity++;
+			} else if (number === 2) {
+				cartQuantity += 2;
+			} else if (number === 3) {
+				cartQuantity += 3;
+			} else {
+				cartQuantity = 0;
 			}
-			function showQuantity(){
-				if(cartQuantity > 10){
-					alert("The cart is full! (10)");
-					cartQuantity = 10;
-				} else if (cartQuantity < 0){
-					alert("The cart is empty! (0)");
-					cartQuantity = 0;
-				} else {
-					alert(`Cart Quantity: ${cartQuantity}`);		
-				}
+
+			showQuantity();
+		}
+		function showQuantity() {
+			if (cartQuantity > 10) {
+				alert("The cart is full! (10)");
+				cartQuantity = 10;
+			} else if (cartQuantity < 0) {
+				alert("The cart is empty! (0)");
+				cartQuantity = 0;
+			} else {
+				alert(`Cart Quantity: ${cartQuantity}`);
 			}
-		</script>
-	</body>
+		}
+	</script>
+</body>
+
 </html>
