@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <script>
+        let amazonProduct = {
+            name: 'basketball',
+            price: 2095
+        };
+        console.log(amazonProduct);
+        amazonProduct.price += 500;
+        console.log(amazonProduct);
+        amazonProduct['delivery-time'] = '3 days';
+        console.log(amazonProduct);
+
+        function comparePrice(prod1, prod2) {
+            if (prod1.price > prod2.price) {
+                console.log('Second Product is cheaper!');
+                return prod2;
+            } else if (prod1.price < prod2.price) {
+                console.log('First Product is cheaper!');
+                return prod1;
+            } else {
+                console.log('They have same price tag!');
+                return null;
+            }
+        }
+
+        let product1 = {
+            name: 'shirt',
+            price: 1099
+        };
+        let product2 = {
+            name: 'socks',
+            price: 699
+        };
+        comparePrice(product1, product2);
+        let product3 = {
+            name: 'toaster',
+            price: 12999
+        };
+        comparePrice(product1, product3);
+
+        let lowerThis = 'WeiRd tExT';
+        console.log(lowerThis.toLowerCase());
+        let repeatThis = 'URmom';
+        console.log(repeatThis.repeat(9));
+    </script>
+</body>
+
+</html>

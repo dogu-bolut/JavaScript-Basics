@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Coin Flip</title>
+</head>
+
+<body>
+    <button onclick="PlayGame('heads');">heads</button>
+    <button onclick="PlayGame('tails');">tails</button>
+    <button onclick="
+		score.wins=0;
+		score.losses=0;
+		localStorage.removeItem('score');
+		">reset score</button>
+    <script>
+        let score = JSON.parse(localStorage.getItem('score')) || {
+            wins: 0,
+            losses: 0
+        };
+
+        localStorage.getItem('score');
+
+
+        function PlayGame(guess) {
+            let pcChoice = ['heads', 'tails'];
+            let shuffled = pcChoice // shuffled code taken from stackoverflow (How to randomize (shuffle) a JavaScript array?)
+                .map(value => ({ value, sort: Math.random() }))
+                .sort((a, b) => a.sort - b.sort)
+                .map(({ value }) => value)
+            if (shuffled[0] == guess) {
+                console.log('Result: ' + shuffled[0]);
+                score.wins++;
+                console.log(`You win, total wins:${score.wins}`);
+            } else if (shuffled[0] != guess) {
+                console.log('Result: ' + shuffled[0]);
+                score.losses++;
+                console.log(`You lose, total losses:${score.losses}`);
+            }
+            localStorage.setItem('score', JSON.stringify(score));
+        }
+    </script>
+</body>
+
+</html>
