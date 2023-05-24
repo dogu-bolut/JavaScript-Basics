@@ -7,17 +7,23 @@
 
 <body>
 	<p>Rock Paper Scissors</p>
-	<button onclick="console.log('Your Choice = Rock');
+	<button onclick="playerMove = 'Rock';
 			generateRandomNumber('Rock', 'Scissors', 'Paper');">Rock</button>
-	<button onclick="console.log('Your Choice = Paper');
+	<button onclick="playerMove = 'Paper';
 			generateRandomNumber('Paper', 'Rock', 'Scissors');">Paper</button>
-	<button onclick="console.log('Your Choice = Scissors');
+	<button onclick="playerMove = 'Scissors';
 			generateRandomNumber('Scissors', 'Paper', 'Rock');">Scissors</button>
+
+	<p class="js-result"></p>
+	<p class="js-moves"></p>
+	<p class="js-score"></p>
+
 	<button onclick="
 		score.wins=0;
 		score.losses=0;
 		score.ties=0;
 		localStorage.removeItem('score');
+		updateScoreElement();
 		">Reset Score</button>
 	<script>
 		let score = JSON.parse(localStorage.getItem('score')) || {
@@ -25,6 +31,8 @@
 			losses: 0,
 			ties: 0
 		};
+
+		updateScoreElement();
 
 		/*
 		if(!score){
@@ -37,7 +45,7 @@
 		*/
 
 		localStorage.getItem('score');
-
+		let playerMove = "";
 		function generateRandomNumber(current, beat, lose) {
 			const randomNumber = Math.random();
 			let computerMove = "";
@@ -49,23 +57,30 @@
 			} else if (randomNumber >= 2 / 3 && randomNumber < 1) {
 				computerMove = "Scissors";
 			}
-			console.log("Computer Choice = " + computerMove);
+
 			if (computerMove === current) {
-				result = "Tie.";
+				updateResult("Tie.");
 				score.ties++;
 			} else if (computerMove === beat) {
-				result = "You Win.";
+				updateResult("You Win.");
 				score.wins++;
 			} else if (computerMove === lose) {
-				result = "You Lose.";
+				updateResult("You Lose.");
 				score.losses++;
 			}
 
 			localStorage.setItem('score', JSON.stringify(score));
 
-			console.log("Game Result = " + result);
-			alert(`Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`)
+			updateScoreElement();
+			document.querySelector('.js-moves').innerHTML = `You: ${playerMove} // Computer: ${computerMove}`;
 		}
+		function updateScoreElement() {
+			document.querySelector('.js-score').innerHTML = `
+				Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+		}
+		function updateResult(result) {
+			document.querySelector('.js-result').innerHTML = result;
+		}		
 	</script>
 </body>
 
