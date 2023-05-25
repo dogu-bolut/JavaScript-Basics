@@ -7,12 +7,12 @@
 
 <body id="calculator">
 	<h1>Calculator</h1>
+	<h3 class="js-result">Waiting for input...</h3>
 	<p>
 		<button style="width: 250px; height: 50px;" onclick="calculation+='1'; displayCalculation();">1</button>
 		<button style="width: 250px; height: 50px;" onclick="calculation+='2'; displayCalculation();">2</button>
 		<button style="width: 250px; height: 50px;" onclick="calculation+='3'; displayCalculation();">3</button>
-		<button style="width: 250px; height: 50px;"
-			onclick="localStorage.removeItem('cal'); calculation='';">Clear</button>
+		<button style="width: 250px; height: 50px;" onclick="calculation='';">Clear</button>
 	</p>
 	<p>
 		<button style="width: 250px; height: 50px;" onclick="calculation+='4'; displayCalculation();">4</button>
@@ -37,11 +37,9 @@
 	</p>
 	<h3>Results are in the console(Right Click > Inspect > Console)</h3>
 	<script>
-		let calculation = JSON.parse(localStorage.getItem('cal')) || "";
-		localStorage.getItem('cal');
+		calculation = '';
 		function displayCalculation() {
-			localStorage.setItem('cal', JSON.stringify(calculation));
-			console.log(calculation);
+			document.querySelector('.js-result').innerHTML = calculation;
 		}
 	</script>
 </body>
