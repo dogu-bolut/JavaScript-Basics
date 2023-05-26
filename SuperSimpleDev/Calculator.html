@@ -7,8 +7,6 @@
 		body {
 			font-family: Arial;
 			background-color: rgb(0, 0, 0);
-			margin-left: 100px;
-			margin-top: 55px;
 		}
 
 		.calculation {
@@ -41,7 +39,7 @@
 		.clear-button {
 			font-size: 20px;
 			height: 60px;
-			width: 270px;
+			width: 130px;
 			border-radius: 30px;
 		}
 	</style>
@@ -51,6 +49,15 @@
 	<!-- Create an element to display the calculation. -->
 	<p class="js-calculation calculation">Answer</p>
 
+	<p>
+		<button class="calculator-button orange-button clear-button" onclick="
+            calculation = ''; displayCalculation();
+            localStorage.setItem('calculation', calculation);">Clear</button>
+		<button class="calculator-button orange-button clear-button" onclick="
+            calculation = eval(calculation);
+            displayCalculation();
+            localStorage.setItem('calculation', calculation);">=</button>
+	</p>
 	<p>
 		<button class="calculator-button gray-button" onclick="
         updateCalculation('1');
@@ -106,7 +113,7 @@
 	</p>
 
 	<p>
-		<button class="calculator-button gray-button" onclick="
+		<button class="calculator-button gray-button clear-button" onclick="
         updateCalculation('0');
       ">0</button>
 
@@ -114,33 +121,10 @@
         updateCalculation('.');
       ">.</button>
 
-		<button class="calculator-button gray-button" onclick="
-        calculation = eval(calculation);
-
-        // Display the calculation on the page
-        // instead of console.log
-        displayCalculation();
-
-        localStorage.setItem('calculation', calculation);
-      ">=</button>
-
 		<button class="calculator-button orange-button" onclick="
         updateCalculation(' / ');
       ">/</button>
 	</p>
-
-	<p>
-		<button class="calculator-button gray-button clear-button" onclick="
-        calculation = '';
-
-        // Display the calculation on the page
-        // instead of console.log
-        displayCalculation();
-
-        localStorage.setItem('calculation', calculation);
-      ">Clear</button>
-	</p>
-
 	<script>
 		let calculation = localStorage.getItem('calculation') || '';
 
