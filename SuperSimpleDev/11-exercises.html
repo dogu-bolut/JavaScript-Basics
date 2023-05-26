@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercises</title>
+</head>
+
+<body>
+    <script>
+        /*
+        const nums = [10, 20, 30];
+        nums[2] = 99;
+        function getLastValue(array) {
+            const lastIndex = array[array.length - 1];
+            console.log(lastIndex);
+        }
+        getLastValue([1, 20, 22, 24, 5]);
+        getLastValue(['hi', 'hello', 'good']);
+        function arraySwap(array) {
+            let lastIndex = array[array.length - 1];
+            let firstIndex = array[0];
+            array[0] = lastIndex;
+            array[array.length - 1] = firstIndex;
+            console.log(array);
+        }
+        arraySwap([1, 2, 3, 4, 5, 6, 7]);
+        arraySwap(['hi', 3, 'apple', 10]);
+        */
+        /*
+        for (let i = 0; i <= 10; i += 2) {
+            console.log(i);
+        }
+        for (let i = 5; i >= 0; i--) {
+            console.log(i);
+        }
+        */
+        /*
+         let countDoubles = 0;
+         while (countDoubles <= 10) {
+             console.log(countDoubles);
+             countDoubles += 2;
+         }
+         let from5 = 5;
+         while (from5 >= 0) {
+             console.log(from5);
+             from5--;
+         }
+         */
+        /*
+        const arrayNums = [1, 2, 3];
+        for (let i = 0; i < arrayNums.length; i++) {
+            arrayNums[i]++;
+        }
+        console.log(arrayNums);
+        function addOne(array) {
+            for (let i = 0; i < array.length; i++) {
+                array[i]++;
+            }
+            console.log(array);
+        }
+        addOne([1, 2, 3]);
+        addOne([-2, -1, 0, 99]);
+        */
+        /*
+         function addNum(array, num) {
+             for (let i = 0; i < array.length; i++) {
+                 array[i] += num;
+             }
+             console.log(array);
+         }
+         addNum([1, 2, 3], 2);
+         addNum([1, 2, 3], 3);
+         addNum([-2, -1, 0, 99], 2);
+         function addArrays(array1, array2) {
+             if (array1.length !== array2.length) {
+                 console.log('Arrays should be the same length!!');
+                 return;
+             }
+             for (let i = 0; i < array1.length; i++) {
+                 array1[i] += array2[i];
+             }
+             console.log(array1);
+         }
+         addArrays([1, 1, 2], [1, 1, 3]);
+         addArrays([1, 2, 3], [4, 5, 6]);
+         addArrays([1, 2, 3], [1, 2]); // this possible error prevented in function
+         function countPositive(nums) {
+             let positiveNums = 0;
+             for (let i = 0; i < nums.length; i++) {
+                 if (nums[i] >= 0) {
+                     positiveNums++;
+                 }
+             }
+             console.log(positiveNums);
+         }
+         countPositive([1, -3, 5]);
+         countPositive([-2, 3, -5, 7, 10]);
+         */
+        function minMax(nums) {
+            if (nums.length <= 1) {
+                console.log('There should be more item in array to calculate!!');
+                return;
+            }
+            let min = nums[0];
+            let max = nums[0];
+            for (let i = 0; i < nums.length; i++) {
+                if (nums[i] < min) {
+                    min = nums[i];
+                } else if (nums[i] > max) {
+                    max = nums[i];
+                }
+            }
+            console.log(`Min: ${min}, Max: ${max}`);
+        }
+        minMax([1, -3, 5]);
+        minMax([-2, 3, -5, 7, 10]);
+        minMax([3]); // this possible error prevented in function
+        minMax([]); // this possible error prevented in function
+        function countWords(words) {
+            const wordObject = {};
+            for (let i = 0; i < words.length; i++) {
+                const word = words[i];
+                if (!wordObject[word]) {
+                    wordObject[word] = 1;
+                } else {
+                    wordObject[word]++;
+                }
+            }
+            console.log(wordObject);
+        }
+        countWords(['apple', 'grape', 'apple', 'apple']);
+    </script>
+</body>
+
+</html>
