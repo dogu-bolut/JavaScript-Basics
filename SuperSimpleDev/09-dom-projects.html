@@ -40,6 +40,10 @@
             padding: 12px 15px;
             cursor: pointer;
         }
+
+        .is-error {
+            color: red;
+        }
     </style>
 </head>
 
@@ -67,12 +71,18 @@
         }
         function calculateTotal() {
             const inputElement = document.querySelector('.js-cost-input');
+            let message = document.querySelector('.js-total-cost');
             let cost = Number(inputElement.value) * 100;
 
-            if (cost < 4000) {
+            if (cost <= 0) {
+                message.innerHTML = `Error: Cost cannot be less than $0`;
+                message.classList.add('is-error');
+                return;
+            } else if (cost < 4000) {
                 cost += 1000;
             }
-            document.querySelector('.js-total-cost').innerHTML = `$${cost / 100}`;
+            message.classList.remove('is-error');
+            message.innerHTML = `$${cost / 100}`;
         }
         function handleCostKeydown(event) {
             console.log(event.key);

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style>
+        .amazon-button {
+            background-color: rgb(255, 216, 20);
+            color: black;
+            font-family: Arial;
+            padding: 10px 50px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+
+        }
+
+        .uber-button {
+            background-color: black;
+            color: white;
+            font-family: Arial;
+            font-weight: bold;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .uber-button2 {
+            background-color: rgb(230, 230, 230);
+            color: black;
+            font-family: Arial;
+            font-weight: bold;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        .css-button {
+            background-color: rgb(230, 230, 230);
+            color: black;
+            font-family: Arial;
+            padding: 10px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .is-toggled {
+            background-color: black;
+            color: rgb(230, 230, 230);
+        }
+    </style>
+</head>
+
+<body>
+    <button class="amazon-button">Add to Cart</button>
+    <p></p>
+    <button class="uber-button">Request now</button>
+    <button class="uber-button2">Schedule for later</button>
+    <p></p>
+    <button class="js-button">Test</button>
+    <p></p>
+    <button class="css-button js-toggle-button" onclick="toggleButton('.js-toggle-button');">Gaming</button>
+    <button class="css-button js-toggle-button2" onclick="toggleButton('.js-toggle-button2');">Music</button>
+    <button class="css-button js-toggle-button3" onclick="toggleButton('.js-toggle-button3');">Tech</button>
+    <script src="10-challenges.js"></script>
+</body>
+
+</html>
