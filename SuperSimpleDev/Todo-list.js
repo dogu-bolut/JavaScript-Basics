@@ -1,4 +1,4 @@
-const todoList = [{
+const todoList = JSON.parse(localStorage.getItem('todoList')) || [{
     name: 'Make Dinner',
     dueDate: '2023-05-26'
 }, {
@@ -23,11 +23,13 @@ function renderTodoList() {
             <button onclick="
                 todoList.splice(${i}, 1);
                 renderTodoList();
+                saveToStorage();
             " class="delete-todo-button">Delete</button>
         `; //generating the html
         todoListHtml += html;
     }
     document.querySelector('.js-todo-list').innerHTML = todoListHtml;
+    localStorage.setItem('list', todoList);
 }
 
 function addTodo() {
@@ -45,6 +47,11 @@ function addTodo() {
     });
     inputElement.value = '';
     renderTodoList();
+    saveToStorage();
+}
+
+function saveToStorage() {
+    localStorage.setItem('todoList', JSON.stringify(todoList));
 }
 
 function handleCostKeydown(event) {
