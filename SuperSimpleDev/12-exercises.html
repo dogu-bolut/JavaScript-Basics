@@ -6,26 +6,28 @@
 </head>
 
 <body>
-    <button class="js-button" onclick="run();">Start</button>
+    <button class="js-button">Start</button>
     <button onclick="addText();">Add to Cart</button>
     <p></p>
-    <button onclick="adjustMessageNumber(+1);">Add</button>
-    <button onclick="adjustMessageNumber(-1);">Remove</button>
+    <button class="js-add-button">Add</button>
+    <button class="js-remove-button">Remove</button>
     <p class="js-added-text"></p>
     <script>
-        let add = function () {
-            console.log(2 + 3);
-        }
+        document.querySelector('.js-add-button').addEventListener('click', () => adjustMessageNumber(+1));
+        document.querySelector('.js-remove-button').addEventListener('click', () => adjustMessageNumber(-1));
+        document.querySelector('.js-button').addEventListener('click', () => run());
+
+        let add = () => console.log(2 + 3);
         add();
+
+
         function runTwice(fun) {
             fun();
             fun();
         }
-        runTwice(function () {
-            console.log('yoooooo');
-        });
+        runTwice(() => console.log('yoooooo'));
         function run() {
-            setTimeout(function () {
+            setTimeout(() => {
                 document.querySelector('.js-button').innerHTML = 'Finished!';
             }, 1000);
             document.querySelector('.js-button').innerHTML = 'Loading...';
@@ -34,14 +36,14 @@
         function addText() {
             document.querySelector('.js-added-text').innerHTML = 'Added!';
             clearTimeout(timeoutID);
-            timeoutID = setTimeout(function () {
+            timeoutID = setTimeout(() => {
                 document.querySelector('.js-added-text').innerHTML = '';
             }, 2000);
         }
         /*
         let maxMessage = 0;
         function message() {
-            setInterval(function () {
+            setInterval(() => {
                 document.title = '(2) New Messages';
             }, 1000);
         }
@@ -58,7 +60,7 @@
                 return;
             }
 
-            intervalID = setInterval(function () {
+            intervalID = setInterval(() => {
                 if (document.title === 'App') {
                     document.title = `(${messageCount}) New Messages`;
                 } else {
