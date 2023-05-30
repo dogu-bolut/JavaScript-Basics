@@ -1,7 +1,9 @@
 body {
+  background-color: rgb(245, 245, 245);
   margin: 0;
   padding-top: 80px;
-  padding-left: 80px;
+  padding-left: 96px;
+  padding-right: 24px;
 }
 
 p {
