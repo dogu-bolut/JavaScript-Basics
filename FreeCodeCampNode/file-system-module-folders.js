@@ -39,6 +39,14 @@ const fs = require('fs');
 //   }
 // });
 
+fs.mkdir('example', (err) => {
+  if (err)
+    console.log(err);
+  else
+    console.log('Folder successfully created!');
+});
+
+// delete each file in folder
 fs.readdir('example', (err, files) => {
   if (err)
     console.log(err);
@@ -51,5 +59,11 @@ fs.readdir('example', (err, files) => {
           console.log('Each file successfully deleted!');
       });
     }
+    fs.rmdir('example', (err) => {
+      if (err)
+        console.log(err);
+      else
+        console.log('Folder successfully deleted!');
+    });
   }
 });
