@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>StopWatch</title>
+  <style>
+    body {
+      font-family: Arial;
+    }
+
+    button {
+      background-color: gold;
+      color: black;
+      border: none;
+      width: 100px;
+      height: 100px;
+      border-radius: 25px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .clicked {
+      background-color: green;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="timerContainer">
+    <h1><time>00:00:00:00</time></h1>
+    <button class="js-start" id="start">start</button>
+    <button class="js-stop" id="stop">stop</button>
+    <button class="js-clear" id="clear">clear</button>
+  </div>
+  <script>
+    let h1 = document.getElementsByTagName('h1')[0],
+      start = document.getElementById('start'),
+      stop = document.getElementById('stop'),
+      clear = document.getElementById('clear'),
+      millisecs = 0, seconds = 0, minutes = 0, hours = 0,
+      t,
+      isStop = true;
+
+    function add() {
+      millisecs++;
+      if (millisecs >= 60) {
+        millisecs = 0;
+        seconds++;
+        if (seconds >= 60) {
+          seconds = 0;
+          minutes++;
+          if (minutes >= 60) {
+            minutes = 0;
+            hours++;
+          }
+        }
+      }
+      h1.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds) + ":" + (millisecs > 9 ? millisecs : "0" + millisecs);
+
+      timer();
+    }
+
+    function timer() {
+      t = setTimeout(add, 10);
+    }
+
+    /* Start button */
+    start.onclick = () => {
+      if (isStop) {
+        timer();
+        isStop = false;
+      } else {
+        console.log('no');
+      }
+      toggleButton('.js-start');
+    }
+
+    /* Stop button */
+    stop.onclick = () => {
+      clearTimeout(t);
+      isStop = true;
+      toggleButton('.js-stop');
+    }
+
+    /* Clear button */
+    clear.onclick = () => {
+      isStop = true;
+      clearTimeout(t);
+      h1.textContent = "00:00:00:00";
+      millisecs = 0, seconds = 0; minutes = 0; hours = 0;
+      toggleButton('.js-clear');
+    }
+
+    function toggleButton(selector) {
+      const button = document.querySelector(selector);
+      if (!button.classList.contains('clicked')) {
+        turnOfPreviousButton();
+        button.classList.add('clicked');
+      } else {
+        button.classList.remove('clicked');
+      }
+    }
+
+    function turnOfPreviousButton() {
+      const previousButton = document.querySelector('.clicked');
+      if (previousButton) {
+        previousButton.classList.remove('clicked');
+      }
+    }
+  </script>
+</body>
+
+</html>
